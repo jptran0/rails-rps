@@ -19,6 +19,15 @@ class ApplicationController < ActionController::Base
   end
 
   def paper
+    @comp_choice = ["rock", "paper", "scissors"].sample
+
+    if @comp_choice == "rock"
+      @result = "won"
+    elsif @comp_choice == "paper"
+      @result = "tie"
+    else
+      @result = "lost"
+    end
     render({ :template => "game_templates/paper" })
   end
 
